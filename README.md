@@ -195,7 +195,3 @@ output "chart_version" {
 ## Contributing
 
 This module maintains compatibility with all `helm_release` and `helm_template` provider features. When adding new variables, ensure they're supported by both resources where applicable.
-
-## License
-
-[Add your license information here]
