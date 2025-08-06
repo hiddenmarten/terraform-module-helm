@@ -11,25 +11,25 @@ variable "name" {
 variable "atomic" {
   description = "If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "cleanup_on_fail" {
   description = "Allow deletion of new resources created in this upgrade when upgrade fails."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "create_namespace" {
   description = "Create the namespace if it does not yet exist. Defaults to false."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "dependency_update" {
   description = "Runs helm dependency update before installing the chart."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "description" {
@@ -41,7 +41,7 @@ variable "description" {
 variable "devel" {
   description = "Use chart development versions, too. Equivalent to version '>0.0.0-0'. If version is set, this is ignored."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "repository" {
@@ -53,7 +53,7 @@ variable "repository" {
 variable "force_update" {
   description = "Force resource update through delete/recreate if needed."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "keyring" {
@@ -65,13 +65,13 @@ variable "keyring" {
 variable "lint" {
   description = "Run the helm chart linter during the plan."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "max_history" {
   description = "Maximum number of release versions stored per release."
   type        = number
-  default     = 0
+  default     = null
 }
 
 variable "chart_version" {
@@ -89,7 +89,7 @@ variable "kubernetes_version" {
 variable "pass_credentials" {
   description = "Pass credentials to all domains."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "postrender" {
@@ -104,19 +104,19 @@ variable "postrender" {
 variable "recreate_pods" {
   description = "Perform pods restart during upgrade/rollback."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "render_subchart_notes" {
   description = "If set, render subchart notes along with the parent."
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "replace" {
   description = "Re-use the given name, only if that name is a deleted release which remains in the history. This is unsafe in production."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "repository_ca_file" {
@@ -153,13 +153,13 @@ variable "repository_username" {
 variable "reset_values" {
   description = "When upgrading, reset the values to the ones built into the chart."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "reuse_values" {
   description = "When upgrading, reuse the last release's values and merge in any overrides. If 'reset_values' is specified, this is ignored."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "set" {
@@ -168,7 +168,7 @@ variable "set" {
     name  = string
     value = string
   }))
-  default = []
+  default = null
 }
 
 variable "set_sensitive" {
@@ -177,62 +177,62 @@ variable "set_sensitive" {
     name  = string
     value = string
   }))
-  default   = []
+  default   = null
   sensitive = true
 }
 
 variable "namespace" {
   description = "The namespace to install the release into. Defaults to default."
   type        = string
-  default     = "default"
+  default     = null
 }
 
 variable "skip_crds" {
   description = "If set, no CRDs will be installed. By default, CRDs are installed if not already present."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "timeout" {
   description = "Time in seconds to wait for any individual kubernetes operation (like Jobs for hooks). Defaults to 300 seconds."
   type        = number
-  default     = 300
+  default     = null
 }
 
 variable "values" {
   description = "List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options."
   type        = any
-  default     = {}
+  default     = null
 }
 
 variable "verify" {
   description = "Verify the package before installing it. Helm uses a provenance file to verify the integrity of the chart; this must be hosted alongside the chart."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "wait" {
   description = "Will wait until all resources are in a ready state before marking the release as successful. It will wait for as long as timeout. Defaults to true."
   type        = bool
-  default     = true
+  default     = null
 }
 
 variable "wait_for_jobs" {
   description = "If wait is enabled, will wait until all Jobs have been completed before marking the release as successful. It will wait for as long as timeout. Defaults to false."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "disable_openapi_validation" {
   description = "If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "disable_webhooks" {
   description = "Prevent hooks from running."
   type        = bool
-  default     = false
+  default     = null
 }
 
 variable "set_list" {
@@ -241,5 +241,5 @@ variable "set_list" {
     name  = string
     value = list(string)
   }))
-  default = []
+  default = null
 }
