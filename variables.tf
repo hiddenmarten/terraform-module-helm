@@ -164,15 +164,21 @@ variable "reuse_values" {
 
 variable "set" {
   description = "Value block with custom values to be merged with the values yaml."
-  type        = list(map(string))
-  default     = []
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
 }
 
 variable "set_sensitive" {
   description = "Value block with custom sensitive values to be merged with the values yaml that won't be exposed in the plan's diff."
-  type        = list(map(string))
-  default     = []
-  sensitive   = true
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default   = []
+  sensitive = true
 }
 
 variable "namespace" {
@@ -234,15 +240,6 @@ variable "set_list" {
   type = list(object({
     name  = string
     value = list(string)
-  }))
-  default = []
-}
-
-variable "set_string" {
-  description = "Value block with custom string values to be merged with the values yaml."
-  type = list(object({
-    name  = string
-    value = string
   }))
   default = []
 }

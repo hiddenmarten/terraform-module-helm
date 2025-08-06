@@ -35,43 +35,9 @@ resource "helm_release" "this" {
   wait_for_jobs        = var.wait_for_jobs
   disable_webhooks     = var.disable_webhooks
 
-  dynamic "postrender" {
-    for_each = var.postrender != null ? [1] : []
-    content {
-      binary_path = var.postrender.binary_path
-      args        = var.postrender.args
-    }
-  }
+  postrender    = var.postrender
+  set           = var.set
+  set_sensitive = var.set_sensitive
+  set_list      = var.set_list
 
-  dynamic "set" {
-    for_each = var.set
-    content {
-      name  = set.value["name"]
-      value = set.value["value"]
-    }
-  }
-
-  dynamic "set_sensitive" {
-    for_each = var.set_sensitive
-    content {
-      name  = set_sensitive.value["name"]
-      value = set_sensitive.value["value"]
-    }
-  }
-
-  dynamic "set_list" {
-    for_each = var.set_list
-    content {
-      name  = set_list.value["name"]
-      value = set_list.value["value"]
-    }
-  }
-
-  dynamic "set_string" {
-    for_each = var.set_string
-    content {
-      name  = set_string.value["name"]
-      value = set_string.value["value"]
-    }
-  }
 }

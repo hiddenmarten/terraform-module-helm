@@ -124,13 +124,6 @@ module "complex_helm_chart" {
     }
   ]
 
-  # String-specific values
-  set_string = [
-    {
-      name  = "app.version"
-      value = "2.5.1"
-    }
-  ]
 
   # Post-processing
   postrender = {
