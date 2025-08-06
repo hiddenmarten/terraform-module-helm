@@ -62,12 +62,12 @@ This module addresses this limitation by:
 ```hcl
 module "my_helm_chart" {
   source = "path/to/this/module"
-  
+
   name       = "my-application"
   repository = "https://charts.example.com"
   chart      = "my-app"
   namespace  = "production"
-  
+
   values = {
     image = {
       repository = "my-app"
@@ -83,7 +83,7 @@ module "my_helm_chart" {
 ```hcl
 module "complex_helm_chart" {
   source = "path/to/this/module"
-  
+
   # Chart identification
   name            = "complex-app"
   repository      = "oci://registry.example.com/helm-charts"
@@ -91,12 +91,12 @@ module "complex_helm_chart" {
   chart_version   = "2.5.1"
   namespace       = "production"
   create_namespace = true
-  
+
   # Deployment behavior
   atomic          = true
   wait            = true
   timeout         = 600
-  
+
   # Values configuration
   values = {
     global = {
@@ -107,7 +107,7 @@ module "complex_helm_chart" {
       port = 5432
     }
   }
-  
+
   # Individual value overrides
   set = [
     {
@@ -115,7 +115,7 @@ module "complex_helm_chart" {
       value = "v2.5.1"
     }
   ]
-  
+
   # Sensitive values
   set_sensitive = [
     {
@@ -123,7 +123,7 @@ module "complex_helm_chart" {
       value = var.db_password
     }
   ]
-  
+
   # String-specific values
   set_string = [
     {
@@ -131,7 +131,7 @@ module "complex_helm_chart" {
       value = "2.5.1"
     }
   ]
-  
+
   # Post-processing
   postrender = {
     binary_path = "/usr/local/bin/kustomize"

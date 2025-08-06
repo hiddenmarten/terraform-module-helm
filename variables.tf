@@ -231,18 +231,18 @@ variable "disable_webhooks" {
 
 variable "set_list" {
   description = "Value block with list of custom values to be merged with the values yaml."
-  type        = list(object({
+  type = list(object({
     name  = string
     value = list(string)
   }))
-  default     = []
+  default = []
 }
 
 variable "set_string" {
   description = "Value block with custom string values to be merged with the values yaml."
-  type        = list(object({
+  type = list(object({
     name  = string
     value = string
   }))
-  default     = []
+  default = []
 }
