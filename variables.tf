@@ -168,7 +168,7 @@ variable "set" {
     name  = string
     value = string
   }))
-  default = []
+  default = null
 }
 
 variable "set_sensitive" {
@@ -177,7 +177,7 @@ variable "set_sensitive" {
     name  = string
     value = string
   }))
-  default   = []
+  default   = null
   sensitive = true
 }
 
@@ -241,5 +241,5 @@ variable "set_list" {
     name  = string
     value = list(string)
   }))
-  default = []
+  default = null
 }
