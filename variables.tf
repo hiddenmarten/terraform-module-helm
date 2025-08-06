@@ -47,6 +47,7 @@ variable "devel" {
 variable "repository" {
   description = "Repository URL where to locate the requested chart."
   type        = string
+  default     = null
 }
 
 variable "force_update" {
@@ -93,8 +94,11 @@ variable "pass_credentials" {
 
 variable "postrender" {
   description = "Configure a command to run after helm renders the manifest which can alter the manifest contents."
-  type        = list(string)
-  default     = null
+  type = object({
+    binary_path = string
+    args        = optional(list(string))
+  })
+  default = null
 }
 
 variable "recreate_pods" {
@@ -230,6 +234,15 @@ variable "set_list" {
   type        = list(object({
     name  = string
     value = list(string)
+  }))
+  default     = []
+}
+
+variable "set_string" {
+  description = "Value block with custom string values to be merged with the values yaml."
+  type        = list(object({
+    name  = string
+    value = string
   }))
   default     = []
 }

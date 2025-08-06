@@ -38,7 +38,8 @@ resource "helm_release" "this" {
   dynamic "postrender" {
     for_each = var.postrender != null ? [1] : []
     content {
-      binary_path = var.postrender[0]
+      binary_path = var.postrender.binary_path
+      args        = var.postrender.args
     }
   }
   
@@ -63,6 +64,14 @@ resource "helm_release" "this" {
     content {
       name  = set_list.value["name"]
       value = set_list.value["value"]
+    }
+  }
+  
+  dynamic "set_string" {
+    for_each = var.set_string
+    content {
+      name  = set_string.value["name"]
+      value = set_string.value["value"]
     }
   }
 }
