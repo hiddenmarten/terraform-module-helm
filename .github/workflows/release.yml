@@ -22,7 +22,6 @@ jobs:
     - uses: softprops/action-gh-release@v2.3.2
       with:
         tag_name: ${{ inputs.release_version }}
-        name: Release ${{ inputs.release_version }}
         generate_release_notes: true
         make_latest: true
       env:
