@@ -189,7 +189,7 @@ output "chart_version" {
 ## Requirements
 
 - Terraform >= 1.0
-- Helm Provider >= 2.0
+- Helm Provider >= 3.0
 - Kubernetes cluster access for Helm operations
 
 ## Contributing
